@@ -12,7 +12,7 @@ export function Button({ buttonText, convertFunction, variant }: ButtonProps) {
   }
 
   return (
-    <button onClick={convertFunction} className={`font-bold px-5 py-2 rounded-lg transition-colors ${variant == "function" ? variantStyles.function : variantStyles.clear}`}>
+    <button onClick={convertFunction} className={`font-bold w-full lg:w-auto px-5 py-2 rounded-lg transition-colors ${variant == "function" ? variantStyles.function : variantStyles.clear}`}>
       {buttonText}
     </button>
   )
