@@ -68,6 +68,19 @@ export default function Home() {
     setInputText(titleCaseConvertedText)
   }
 
+  function handleConvertTextToSentenceCase() {
+    const sentenceCaseConvertedText = inputText
+      .split(".")
+      .map(sentence => {
+        const trimmedSentence = sentence.trim();
+        return trimmedSentence.charAt(0).toUpperCase() + trimmedSentence.slice(1).toLowerCase();
+      })
+      .filter(sentence => sentence !== "")
+      .join(". ") + "."
+
+    setInputText(sentenceCaseConvertedText);
+  }
+
   function handleClearText() {
     setInputText("")
   }
@@ -100,6 +113,9 @@ export default function Home() {
         <Button variant="function" buttonText="aLtErNaTiNg cAsE" convertFunction={handleConvertTextToAlternatingCase} />
         <Button variant="function" buttonText="InVeRsE CaSe" convertFunction={handleConvertTextToInvertedCase} />
         <Button variant="function" buttonText="Title Case" convertFunction={handleConvertTextToTitleCase} />
+        <Button variant="function" buttonText="Sentence. Case." convertFunction={handleConvertTextToSentenceCase} />
+      </div>
+      <div className="mt-6 w-full px-4 flex items-center justify-center">
         <Button variant="clear" buttonText="Clear" convertFunction={handleClearText} />
       </div>
     </div>
